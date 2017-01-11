@@ -12,14 +12,14 @@ test('first test', function(t) {
 
 
 test('validate a good email', function (t) {
-  t.equal(decrypt()'alma'), 'alma');
+  t.equal(validator('almaaad adjasj remarkable, spectacular, outstanding asdkjlaskjdé', 'alma@email.com', 10), true);
   t.end();
 })
 
-test('decrypt alma with 1', function (t) {
-  t.equal(decrypt(1, 'zold'), 'ynkc');
-  t.end();
-})
+// test('decrypt alma with 1', function (t) {
+//   t.equal(decrypt(1, 'zold'), 'ynkc');
+//   t.end();
+// })
 
 test("validator accepts valid email, a scale of 15 and positive feedback");
 test("validator rejects unfilled email, a scale of 15 and positive feedback");
