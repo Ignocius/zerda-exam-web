@@ -2,7 +2,7 @@ var Ajax = function(){
   this.APIEndpoint = 'http://localhost:3600/';
 
   this.sendData = function(data, callback) {
-    this.open('POST', data, 'exam/', callback);
+    this.open('POST', data, 'exam', callback);
   }
 
   this.open = function(method, data, resource, callback) {

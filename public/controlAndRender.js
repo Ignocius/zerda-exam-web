@@ -26,7 +26,7 @@ var Control = (function(){
         projLi.textContent = project.project_name;
       });
     } catch (e) {
-      console.log(projects.message);
+      // console.log(projects.message);
         let errLi = document.createElement('li');
         list.appendChild(errLi);
         errLi.textContent = projects.message;

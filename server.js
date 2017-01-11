@@ -26,8 +26,9 @@ app.use(function(req, res, next) {
 });
 
 
-app.post('/exam/', function survey (req, res) {
+app.post('/exam', function survey (req, res) {
   let ifValid = validator(req.body.feedback, req.body.email, req.body.scale);
+  console.log(validator(req.body.feedback, req.body.email, req.body.scale));
   let response = {
   "status": "ok",
   "projects": [
@@ -41,16 +42,18 @@ app.post('/exam/', function survey (req, res) {
     "message": "thank you"
   };
 
-   if (ifValid) {
-     connection.query('SELECT * FROM projects', function(err, rows, fields){
-       if (err) {
-         throw err;
-       } else {
-         res.send(rows);
-       }
-    });
-  }  else {
+  console.log(ifValid);
+
+   if (!ifValid) {
      res.send(errMsg);
+  }  else {
+    connection.query('SELECT * FROM projects', function(err, rows, fields){
+      if (err) {
+        throw err;
+      } else {
+        res.send(rows);
+      }
+    });
    };
 });
 

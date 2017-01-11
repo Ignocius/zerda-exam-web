@@ -1,0 +1,23 @@
+main {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.feedback-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.feedback-data p {
+  padding-left: 10px;
+}
+
+.number-data {
+
+}
+
+textarea {
+  width: 250px;
+}

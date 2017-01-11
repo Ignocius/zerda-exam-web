@@ -19,8 +19,8 @@ function validateEmail (feedback, email, num) {
   let scaleValid = false;
   let valid = false;
 
-  for(let w in feedback) {
-  	var word = feedback[w];
+  for(let w in goodFeedback) {
+  	var word = goodFeedback[w];
   	console.log(feedback)
     // console.log(feedback.indexOf(word));
   	if(feedback.indexOf(word) != -1) {

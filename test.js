@@ -26,6 +26,11 @@ test('validator rejects valid email, a scale of 9 and positive feedback', functi
   t.end();
 })
 
+test('validator rejects valid email, a scale of 10 and no feedback', function (t) {
+  t.equal(validator('almaaad adjasj, adasd, asdasd asdkjlaskjdé', 'alma@email.com', 10), false);
+  t.end();
+})
+
 test("validator accepts valid email, a scale of 15 and positive feedback");
 test("validator rejects unfilled email, a scale of 15 and positive feedback");
 test("validator rejects valid email, a scale of 9 and positive feedback");
