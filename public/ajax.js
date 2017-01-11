@@ -14,7 +14,7 @@ ar Ajax = function(){
       xhr.setRequestHeader('Content-Type', 'application/json');
     }
 
-    xhr.send( JSON.stringify(data));
+    xhr.send( JSON.stringify(da ta));
     xhr.onreadystatechange = function (rsp) {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if ( xhr.status === 200 ) {
