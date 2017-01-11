@@ -9,37 +9,48 @@
 // write unit tests for the cases in test.js found in this repository
 // write 3 more test cases
 
-module.exports = function validateEmail (input, email, num) {
+module.exports =
+function validateEmail (input, email, num) {
   let feedback = ["amazing", "awesome", "blithesome", "excellent", "fabulous", "fantastic", "favorable", "fortuitous", "great", "incredible", "ineffable", "mirthful", "outstanding", "perfect", "propitious", "remarkable", "smart", "spectacular", "splendid", "stellar", "stupendous", "super", "ultimate", "unbelievable", "wondrous"];
   let scale = parseInt(num);
-  let stringInp = [input];
-  let emailInp = [email];
-  let counter = 0;
-  let goodCount= false;
+  // let stringInp = [input];
+  var foundWordsCount = 0;
+  let isGoodWInInsCount= false;
   let isEmailSign = false;
   let scaleValid = false;
   let valid = false;
-  stringInp.forEach(function(word, index){
-    if (word === feedback[index]) {
-      counter ++;
-      if (counter > 3) {
-        goodCount = true;
-        counter = 0;
-      };
-    }
-  });
+
+  for(let w in feedback) {
+  	var word = feedback[w];
+  	console.log(input)
+    // console.log(input.indexOf(word));
+  	if(input.indexOf(word) != -1) {
+      foundWordsCount++;
+      console.log(foundWordsCount);
+      if (foundWordsCount >= 3) {
+        isGoodWInInsCount = true;
+        foundWordsCount = 0;
+      }
+  	}
+  }
+  // console.log(foundWordsCount);
+
   if (scale === 10 || scale > 10) {
     scaleValid = true;
   };
 
-  emailInp.forEach( function(word) {
-    if (word === '@') {
-      isEmailSign = true;
-    }
-  });
+  for (var i = 0; i < email.length; i++) {
+      if (email[i] === '@') {
+        isEmailSign = true;
+      }
+  };
+  // console.log(isGoodWInInsCount, isEmailSign, scaleValid);
 
-  if (goodCount && isEmailSign && scaleValid) {
+  if ( isGoodWInInsCount && isEmailSign && scaleValid) {
     valid = true;
   }
+  // console.log(valid);
   return valid;
 };
+
+// console.log(validateEmail('almaaad adjasj remarkable, spectacular, outstanding asdkjlaskjdé', 'alma@email.com', 10));

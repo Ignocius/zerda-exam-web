@@ -19,17 +19,24 @@ var Control = (function(){
   });
 
   function render(){
-    projects.forEach(function(project, index){
-     let li = document.createElement('li');
-     list.appendChild(li);
-     li.textContent = project.project_name;
+    let li = document.createElement('li');
+    try {
+      projects.forEach(function(project, index){
+        list.appendChild(li);
+        li.textContent = project.project_name;
+      });
+    } catch (e) {
+      console.log(projects.message);
+        list.appendChild(li);
+        li.textContent= projects.message;
+    };
     //  console.log(project);
-    })
   }
 
   function sendDataBack(collectedData) {
     ajax.sendData(collectedData, function(res){
       loading.textContent = "";
+      console.log(res);
       projects = res;
       render();
     })

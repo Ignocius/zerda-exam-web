@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
 var mysql = require('mysql');
-var decoder = require('./validate');
+var validator = require('./validate');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -27,6 +27,7 @@ app.use(function(req, res, next) {
 
 
 app.post('/exam/', function survey (req, res) {
+  let ifValid = validator(req.body.feedback, req.body.email, req.body.scale);
   let response = {
   "status": "ok",
   "projects": [
@@ -40,7 +41,7 @@ app.post('/exam/', function survey (req, res) {
     "message": "thank you"
   };
 
-   if (true) {
+   if (ifValid) {
      connection.query('SELECT * FROM projects', function(err, rows, fields){
        if (err) {
          throw err;
