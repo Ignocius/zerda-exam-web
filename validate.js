@@ -1,5 +1,5 @@
 'use strict';
-// create a separate file for the input validation module
+// create a separate file for the feedback validation module
 // the validator function should return true if:
 // the email has an @ sign
 // AND the scale is equal to or bigger than 10
@@ -10,10 +10,9 @@
 // write 3 more test cases
 
 module.exports =
-function validateEmail (input, email, num) {
-  let feedback = ["amazing", "awesome", "blithesome", "excellent", "fabulous", "fantastic", "favorable", "fortuitous", "great", "incredible", "ineffable", "mirthful", "outstanding", "perfect", "propitious", "remarkable", "smart", "spectacular", "splendid", "stellar", "stupendous", "super", "ultimate", "unbelievable", "wondrous"];
+function validateEmail (feedback, email, num) {
+  let goodFeedback = ["amazing", "awesome", "blithesome", "excellent", "fabulous", "fantastic", "favorable", "fortuitous", "great", "incredible", "ineffable", "mirthful", "outstanding", "perfect", "propitious", "remarkable", "smart", "spectacular", "splendid", "stellar", "stupendous", "super", "ultimate", "unbelievable", "wondrous"];
   let scale = parseInt(num);
-  // let stringInp = [input];
   var foundWordsCount = 0;
   let isGoodWInInsCount= false;
   let isEmailSign = false;
@@ -22,9 +21,9 @@ function validateEmail (input, email, num) {
 
   for(let w in feedback) {
   	var word = feedback[w];
-  	console.log(input)
-    // console.log(input.indexOf(word));
-  	if(input.indexOf(word) != -1) {
+  	console.log(feedback)
+    // console.log(feedback.indexOf(word));
+  	if(feedback.indexOf(word) != -1) {
       foundWordsCount++;
       console.log(foundWordsCount);
       if (foundWordsCount >= 3) {

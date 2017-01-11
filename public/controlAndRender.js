@@ -19,16 +19,17 @@ var Control = (function(){
   });
 
   function render(){
-    let li = document.createElement('li');
     try {
       projects.forEach(function(project, index){
-        list.appendChild(li);
-        li.textContent = project.project_name;
+        let projLi = document.createElement('li');
+        list.appendChild(projLi);
+        projLi.textContent = project.project_name;
       });
     } catch (e) {
       console.log(projects.message);
-        list.appendChild(li);
-        li.textContent= projects.message;
+        let errLi = document.createElement('li');
+        list.appendChild(errLi);
+        errLi.textContent = projects.message;
     };
     //  console.log(project);
   }
